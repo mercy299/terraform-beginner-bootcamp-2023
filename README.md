@@ -171,3 +171,50 @@ If it is successful, you should see a json payload return that looks like this
 }
 ```
 We would need to generate AWS CLI Credits from IAM User in order to the user aws CLI.
+
+## Terraform Basics 
+
+### Terraform Registry
+
+Terraform sources provide their providers and modulels from the terraform repository which is located at [registory.terraform.io](https://registry.terraform.io/)
+
+- **Providers** is an interface to API's that allows you to create resources in terraform. They are responsible for understanding API interactions and exposing resources.
+- **Modules**  Modules are self-contained packages of Terraform configurations that are managed as a group.
+
+### Terraform Console
+
+We can see a list of all the terraform coands by simply typing `terraform`.
+
+### Terraform Init
+
+`terraform init`
+At the start of a terraform project, we will run `terraform init`. to download the binaries that we'd use in the terraform project.
+[](https://registry.terraform.io/providers/hashicorp/random/)
+
+### Terraform Plan
+
+`terraform plan`
+This will generate out a changeset about the state of our infrastructure and what will be changed. 
+We can output this changeset ie "plan" to be passed to an apply, but you can just ignore outputing. 
+
+### Terraform Apply
+
+`terrafor apply`
+This will run a plan and pass the changeset to be execute by terraform. This should prompt `yes or no`. If we want to automatically approve the auto approve flag eg. `terraform apply --auto-approve`
+
+### Terraform Lock Files
+
+`terrafom.lock.hcl` contains the locked versioning for the providers or modules that should be used with the project. 
+The terrafofrm lock file **should** be commited to your guthub.
+
+### Terraform state files
+
+`terraform.tfstate` contains information about the current state of your infrastructure. 
+
+This file **should not** be committed to your github. This file can contain sensitive data. I fyou lose this files, you lose knowing the state of your infrastructure. 
+
+`terraform.tfstate.backup` is the previous state of the files
+
+### Terraform Directory
+
+`.terraform` directory contains binaries of different terraform providers.
