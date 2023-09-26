@@ -3,7 +3,7 @@
 ## Semantic Versioning :mage:
 
 This project is going to utilize semantic versioning for its tagging.
-[semver.org](https://semver.org/)
+[semver. org](https://semver.org/)
 
 The format
 
@@ -12,26 +12,26 @@ The format
 
 – **MAJOR** version when you make incompatible API changes
 
-– **MINOR**version when you add functionality in a backward compatible manner
+– **MINOR**version when you add functionality in a backward-compatible manner
 
-– **PATCH** version when you make backward compatible bug fixes
+– **PATCH** version when you make backwards compatible bug fixes
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
 ## Install The Terraform CLI
 
-The terraform installation instruction have changed due to the gpg keyring changes. So we referred to the lateest Install CLI instructions via the terraform documentation and changed the scripting to install.
+The terraform installation instructions have changed due to the gpg keyring changes. So we referred to the latest Install CLI instructions via the terraform documentation and changed the scripting to install.
 
 [Install the Terraform CLI] (https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 ### Considerations For Linux Distribution
 
-This project is built agains Ubuntu. Please check your distribution and change according to your distribution needs
+This project is built against Ubuntu. Please check your distribution and change it according to your distribution needs
 
 [How to check OS Version in Linux] (https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/)
 
-### Refractoring Into Bash Scripts
+### Refactoring Into Bash Scripts
 
-While fixing the terrafor gpg deprecation issues, we noticed the installation steps were a considerable amount of mono code. So we decided to create a bash script to install the Terraform CLI. 
+While fixing the terraform gpg deprecation issues, we noticed the installation steps were a considerable amount of mono code. So we decided to create a bash script to install the Terraform CLI. 
 
 This bash script is located here [./bin/install_terraform_cli.sh](./bin/install_terraform_cli.sh)
 
@@ -43,7 +43,7 @@ https://linuxhandbook.com/shebang/
 
 #### Shebang Considerations
 
-A Shebang tells the bash script what INterpreter will Interprete the script.
+A Shebang tells the bash script what INterpreter will Interpret the script.
 
 Chat GPT recommended this code for bash
 ```sh
@@ -61,7 +61,7 @@ When executing the bash script, we can use the '/' shorthand  notation
 
 eg `./bin/install_terraform_cli`
 
-If we are using a script in 'gitpod.yml' in we need to point the script to a program to interprete it. 
+If we are using a script in 'gitpod.yml' we need to point the script to a program to interpret it. 
 
 eg `source ./bin/install_terraform_cli`
 
@@ -129,13 +129,13 @@ We can print an env var using echo eg. `echo $HELLO`
 
 #### Scoping of Env Vars
 
-When you open up new bash terminals in vscode, it will not be aware of env vars you have set in another window.
+When you open up new bash terminals in vscode, it will not be aware of ENV vars you have set in another window.
 
 If you want env vars to persist across all future bash terminals that are open, you need to set env vars in your bash profile. eg `.bash_profile`
 
 #### Persisting Env vars in Gitpod
 
-We can process env vars in gitpod by storing them in Gitpod Secrets Storage
+We can process env vars in Gitpod by storing them in Gitpod Secrets Storage
 
 ```
 gp env HELLO='World'
@@ -156,7 +156,7 @@ Aws Cli is installed for this project via the bash script []`./bin/install_aws_c
 
 [AWS configure CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 
-We can check if our AWS Credentials is configured correctly by running the following aws cli command
+We can check if our AWS Credentials are configured correctly by running the following AWS CLI command
 
 ```sh
 aws sts get-caller-identity
@@ -170,15 +170,15 @@ If it is successful, you should see a json payload return that looks like this
     "Arn": "arn:aws:iam::123456789012:user/terraform-beginner-bootcamp"
 }
 ```
-We would need to generate AWS CLI Credits from IAM User in order to the user aws CLI.
+We would need to generate AWS CLI Credits from IAM User in order to the user AWS CLI.
 
 ## Terraform Basics 
 
 ### Terraform Registry
 
-Terraform sources provide their providers and modulels from the terraform repository which is located at [registory.terraform.io](https://registry.terraform.io/)
+Terraform sources provide their providers and modules from the terraform repository which is located at [registory.terraform.io](https://registry.terraform.io/)
 
-- **Providers** is an interface to API's that allows you to create resources in terraform. They are responsible for understanding API interactions and exposing resources.
+- **Providers** is an interface to APIs that allows you to create resources in terraform. They are responsible for understanding API interactions and exposing resources.
 - **Modules**  Modules are self-contained packages of Terraform configurations that are managed as a group.
 
 ### Terraform Console
@@ -194,30 +194,30 @@ At the start of a terraform project, we will run `terraform init`. to download t
 ### Terraform Plan
 
 `terraform plan`
-This will generate out a changeset about the state of our infrastructure and what will be changed. 
-We can output this changeset ie "plan" to be passed to an apply, but you can just ignore outputing. 
+This will generate a changeset about the state of our infrastructure and what will be changed. 
+We can output this changeset ie. "plan" to be passed to an apply, but you can just ignore outputting. 
 
 ### Terraform Apply
 
-`terrafor apply`
-This will run a plan and pass the changeset to be execute by terraform. This should prompt `yes or no`. If we want to automatically approve the auto approve flag eg. `terraform apply --auto-approve`
+`terraform apply`
+This will run a plan and pass the changeset to be executed by Terraform. This should prompt `yes or no`. If we want to automatically approve the auto approve flag eg. `terraform apply --auto-approve`
 
 ### Terraform Destroy 
 
-This will destry resources.
+This will destroy resources.
 You can also use the `--auto-approve` flag to skip the approve part.
 eg. `terraform destroy --auto-approve`
 
 ### Terraform Lock Files
 
-`terrafom.lock.hcl` contains the locked versioning for the providers or modules that should be used with the project. 
-The terrafofrm lock file **should** be commited to your guthub.
+`terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with the project. 
+The terraform lock file **should** be committed to your Github.
 
 ### Terraform state files
 
 `terraform.tfstate` contains information about the current state of your infrastructure. 
 
-This file **should not** be committed to your github. This file can contain sensitive data. I fyou lose this files, you lose knowing the state of your infrastructure. 
+This file **should not** be committed to your GitHub. This file can contain sensitive data. If you lose this file, you lose knowing the state of your infrastructure. 
 
 `terraform.tfstate.backup` is the previous state of the files
 
@@ -229,11 +229,11 @@ This file **should not** be committed to your github. This file can contain sens
 
 You should not have more than one Terraform Provider Block. You can have more than one `required provider` block in the terraform provider block though.
 
-- You need to follow the guidelines to the S3 bucket naming conditions so you don't end up with a number of errors.
+- You need to follow the guidelines for the S3 bucket naming conditions so you don't end up with a number of errors.
 
-## Issues with Terraform cloud login and gitpod workspaces
+## Issues with Terraform cloud login and Gitpod workspaces
 
-When attempmting to run `terraform login`, it will as you to generate a token. You need to lookout and carefully input the value. Or you can manually create and generate a token and store it in a manually created file.
+When attempting to run `terraform login`, it will ask you to generate a token. You need to look out and carefully input the value. Or you can manually create and generate a token and store it in a manually created file.
 
 ```
 touch /home/gitpod/.terraform.d/credentials.tfrc.json
@@ -246,7 +246,7 @@ Place your token in the file and save
 {
    "credentials": {
     "app.terrafoform.io" : { 
-        token : "YOUR- TERRAFORM-TOKEN"
+        token: "YOUR- TERRAFORM-TOKEN"
     }
    }
 }
