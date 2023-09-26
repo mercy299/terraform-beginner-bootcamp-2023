@@ -230,3 +230,24 @@ This file **should not** be committed to your github. This file can contain sens
 You should not have more than one Terraform Provider Block. You can have more than one `required provider` block in the terraform provider block though.
 
 - You need to follow the guidelines to the S3 bucket naming conditions so you don't end up with a number of errors.
+
+## Issues with Terraform cloud login and gitpod workspaces
+
+When attempmting to run `terraform login`, it will as you to generate a token. You need to lookout and carefully input the value. Or you can manually create and generate a token and store it in a manually created file.
+
+```
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+
+Place your token in the file and save
+
+```
+{
+   "credentials": {
+    "app.terrafoform.io" : { 
+        token : "YOUR- TERRAFORM-TOKEN"
+    }
+   }
+}
+```
