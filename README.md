@@ -242,7 +242,7 @@ open /home/gitpod/.terraform.d/credentials.tfrc.json
 
 Place your token in the file and save
 
-```
+```json
 {
    "credentials": {
     "app.terrafoform.io" : { 
