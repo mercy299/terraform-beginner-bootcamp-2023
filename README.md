@@ -224,3 +224,9 @@ This file **should not** be committed to your github. This file can contain sens
 ### Terraform Directory
 
 `.terraform` directory contains binaries of different terraform providers.
+
+### Terraform Providers
+
+You should not have more than one Terraform Provider Block. You can have more than one `required provider` block in the terraform provider block though.
+
+- You need to follow the guidelines to the S3 bucket naming conditions so you don't end up with a number of errors.
