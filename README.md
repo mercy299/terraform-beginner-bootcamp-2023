@@ -68,7 +68,7 @@ eg `source ./bin/install_terraform_cli`
 
 #### Linux Permission Considerations
 
-In order to make our bash scripts executable, we need to change linux permissions for the fix to be executable at the user mode.
+In order to make our bash scripts executable, we need to change linux permissions for the fix to be executable in the user mode.
 
 ```sh
 chmod u+x ./bin/install_terraform_cli
@@ -103,11 +103,11 @@ We can filter specific env vars using grep eg. `env | grep AWS_`
 
 #### Setting and Unsetting Env Vars
 
-In the terminal we can set using `export HELLO= 'WORLD'`
+In the terminal, we can set using `export HELLO= 'WORLD'`
 
 In the terminal, we unset using `unset HELLO`
 
-We can set an env var temporarily when just running a comand 
+We can set an env var temporarily when just running a command 
 
 
 ```sh
@@ -178,12 +178,12 @@ We would need to generate AWS CLI Credits from IAM User in order to the user AWS
 
 Terraform sources provide their providers and modules from the terraform repository which is located at [registory.terraform.io](https://registry.terraform.io/)
 
-- **Providers** is an interface to APIs that allows you to create resources in terraform. They are responsible for understanding API interactions and exposing resources.
+- **Providers** is an interface to APIs that allows you to create resources in Terraform. They are responsible for understanding API interactions and exposing resources.
 - **Modules**  Modules are self-contained packages of Terraform configurations that are managed as a group.
 
 ### Terraform Console
 
-We can see a list of all the terraform coands by simply typing `terraform`.
+We can see a list of all the terraform commands by simply typing `terraform`.
 
 ### Terraform Init
 
