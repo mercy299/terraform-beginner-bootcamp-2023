@@ -246,7 +246,7 @@ Place your token in the file and save
 {
    "credentials": {
     "app.terrafoform.io" : { 
-        token: "YOUR- TERRAFORM-TOKEN"
+        token: "YOUR-TERRAFORM-TOKEN"
     }
    }
 }
