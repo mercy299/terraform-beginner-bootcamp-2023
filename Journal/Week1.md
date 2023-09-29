@@ -50,3 +50,24 @@ This is the default file to load in terraform variables in blunk
 ### order of terraform variables
 
 - TODO: research this flag. document which terraform variables take prescedence
+
+## Dealing with configuration Drift
+
+## What hapens if we lose our state files?
+
+If you lose your statefiles, you most likely have to tear down your cloud infrastructure manually.
+
+You can use terraform iport but it won't work for all cloud resouces. You need to check the terraform providers documentation for which resources support import.
+
+### Fix missing Resources with Terraform Import
+
+`terraform import aws_s3_bucket.bucket bucket_name`
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+
+[AWS S3 Bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+### Fix Manual Configuration
+
+If someone goes and deletes or modifies cloud resources manually through clickOps.
+If we run terraform plan, It will attempt to put our infrastructure back into the expected state fixing our configuration drift. 
