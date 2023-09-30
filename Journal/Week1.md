@@ -71,3 +71,43 @@ You can use terraform iport but it won't work for all cloud resouces. You need t
 
 If someone goes and deletes or modifies cloud resources manually through clickOps.
 If we run terraform plan, It will attempt to put our infrastructure back into the expected state fixing our configuration drift. 
+
+## Fix using Terraform Refresh
+
+```sh
+terraform apply -refresh-only --auto-aprove
+```
+
+## Terraform Modules 
+
+### Terraform Modules Structure
+
+It is recomended to place modules in a `modules directory` when locally developing modules. But you can name it whatever you like
+
+### Passing Input Variables
+
+We can pass input variables to our modules.
+The module has to declare the terraform variables in its own variables.tf
+
+```tf
+module "terrahouse_aws" {
+  source = "./Modules/terrahouse_aws"
+  user_uuid= var.user_uuid
+  bucket_name = var.bucket_name
+}
+```
+
+### Modules Sources
+
+Using the source, we can import the module from various places, eg: 
+- Locally
+- GitHub
+- Terraform Registory
+
+```tf
+module "terrahouse_aws" {
+  source = "./Modules/terrahouse_aws"
+}
+```
+
+[Modules Sources](https://developer.hashicorp.com/terraform/language/modules/sources)

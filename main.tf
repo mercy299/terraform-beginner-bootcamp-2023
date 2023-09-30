@@ -1,9 +1,22 @@
+terraform {
+  # backend "remote" {
+  #   hostname = "app.terraform.io"
+  #   organization = "Altschool"
 
-resource "aws_s3_bucket" "website_bucket" {
-  bucket = var.bucket_name
+  #   workspaces {
+  #     name = "terra-house-1"
+  #   }
+  # }
+  # cloud {
+  #   organization = "Altschool"
+  #   workspaces {
+  #     name = "terra-house-1"
+  #   }
+  # }
 
-  tags = {
-    UserUuid = var.user_uuid
-  }
 }
-
+module "terrahouse_aws" {
+  source = "./Modules/terrahouse_aws"
+  user_uuid= var.user_uuid
+  bucket_name = var.bucket_name
+}
