@@ -212,3 +212,25 @@ We use the jsonencode to create the json policy inline in the hcl.
 
 Plain data values such as local values and input variables don't have any side-effects to plan against and so they aren't valid in replace_triggered_by. You can use terraform_data's behaviour of planning an action each time input changes to indirectly use a plain value to trigger replacement.
 [Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
+## Provisioners
+Provisioners allows you to execute commands on compute instances eg, a AWS CLI Command.
+They are not recommended for use by Hashicorp because Configuration Management tools such as Ansible are a better fit, but the functionality exists.
+[Terraform Provisioners](https://developer.hashicorp.com/terraform/language/resource/provisioners/syntax)
+
+### Local-exec
+This will execute a comand on the machine running the terraform commands eg. plan, apply 
+
+```tf
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "local-exec" {
+    command = "echo The server's IP address is ${self.private_ip}"
+  }
+}
+```
+`https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec`
+
+### Remote-exec
+This will execute commands on a machine which you target. You will need to provide credentials such as ssh to get into the machine. 
