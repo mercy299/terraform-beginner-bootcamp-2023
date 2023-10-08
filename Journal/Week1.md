@@ -234,3 +234,14 @@ resource "aws_instance" "web" {
 
 ### Remote-exec
 This will execute commands on a machine which you target. You will need to provide credentials such as ssh to get into the machine. 
+
+## For Each Expressions
+
+For Each allows us to enumerate over complex data types 
+
+```sh
+[for s in var.list : upper(s)]
+```
+
+This is ostly useful when you are creating multiples of cloud resources and you want to reduce the amount of repetitive terrafoform code 
+[For Each Expressions ](https://developer.hashicorp/terraform/language/expressions/for)
