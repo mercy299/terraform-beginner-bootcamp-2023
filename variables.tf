@@ -18,7 +18,7 @@ variable "content_version" {
   type = number
 }
 
-variable "access_path" {
+variable "assets_path" {
   description = "Path to assets folder"
   type = string
 }
