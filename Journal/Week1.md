@@ -111,8 +111,8 @@ We can pass input variables to our modules.
 The module has to declare the terraform variables in its own variables.tf
 
 ```tf
-module "terrahouse_aws" {
-  source = "./Modules/terrahouse_aws"
+module "terrahome_aws" {
+  source = "./Modules/terrahome_aws"
   user_uuid= var.user_uuid
   bucket_name = var.bucket_name
 }
@@ -126,8 +126,8 @@ Using the source, we can import the module from various places, eg:
 - Terraform Registory
 
 ```tf
-module "terrahouse_aws" {
-  source = "./Modules/terrahouse_aws"
+module "terrahome_aws" {
+  source = "./Modules/terrahome_aws"
 }
 ```
 

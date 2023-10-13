@@ -10,19 +10,41 @@ variable "terratowns_endpoint" {
 # variable "bucket_name" {
 #   type = string
 # }
-variable "index_html_filepath" {
-  type = string
+# variable "afang_public_path" {
+#   type = string
+# }
+# variable "sylvanesso_public_path" {
+#   type = string
+# }
+
+# variable "error_html_filepath" {
+#   type = string
+# }
+
+# variable "afang_content_version" {
+#   type = number
+# }
+# variable "sylvanesso_content_version" {
+#   type = number
+# }
+# variable "content_version" {
+#   type = number
+# }
+
+# variable "assets_path" {
+#   description = "Path to assets folder"
+#   type = string
+# }
+variable "afang" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
 
-variable "error_html_filepath" {
-  type = string
-}
-
-variable "content_version" {
-  type = number
-}
-
-variable "assets_path" {
-  description = "Path to assets folder"
-  type = string
+variable "sylvanesso" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
