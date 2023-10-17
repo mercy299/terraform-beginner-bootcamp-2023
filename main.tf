@@ -78,7 +78,7 @@ No Rules Sandy, to positive reviews on their Psychic Hotline label.[3]
 DESCRIPTION
   domain_name = module.home_sylvanesso_hosting.domain_name
   # domain_name = "3fdq3gz.cloudfront.net"
-  town = "missingo"
+  town = "melomaniac-mansion" 
   content_version = var.sylvanesso.content_version
 }
 
@@ -110,6 +110,6 @@ Because Cross River and Akwa-Ibom states are riverine, most stews and soups orig
 DESCRIPTION
   domain_name = module.home_afang_hosting.domain_name
   # domain_name = "3fdq3gz.cloudfront.net"
-  town = "missingo"
+  town = "cooker-cove"
   content_version = var.afang.content_version
 }
